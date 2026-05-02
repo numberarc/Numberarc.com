@@ -49,7 +49,7 @@
 		<details>
 			<summary>Sersku GUI</summary>
 				<div>
-    <p style="text-align: center;">
+    <textarea id="message" rows="15" cols="90" style="width: 100; height: 300;">
 -- Create GUI
 local gui = Instance.new("ScreenGui", game.Players.LocalPlayer:WaitForChild("PlayerGui"))
 local frame = Instance.new("Frame", gui)
@@ -146,7 +146,7 @@ execBtn.MouseButton1Click:Connect(function()
 	local func = loadstring(code)
 	if func then func() end
 end)
-</p>
+</textarea>
         </div>
     </details>
           

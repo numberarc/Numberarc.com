@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Numberarc</title>
+		<link rel="icon" href="https://www.numberarc.com/images/favicon.jpg" type="image/jpeg" sizes="64x64">
+	</head>
+	<body>
+
+		<style>
+            body {
+                background-color:black;
+            }
+        </style>
+		
+		<table border="1" width="100%" height="100%" bgcolor="lightblue">
+			<!-- Sidebar -->
+			<tr>
+				<td width="30">
+
+				<details>
+				<summary>Sidebar</summary>
+				<div>
+
+				<h2>List of everything else:</h2>
+				<ul>
+                    <li><a href="http://www.numberarc.com">Numberarc.com</a></li>
+                    <li><a href="http://www.numberarc.com/others.html">others.html</a></li>
+                    <li><a href="http://www.numberarc.com/zero-arc.html">zero-arc.html</a></li>
+					<li><a href="http://www.numberarc.com/posts.html">Posts</a></li>
+					<li><a href="http://www.numberarc.com/sitemap.html">Sitemap</a></li>
+                </ul>
+				<h3>Updates:</h3>
+				<p>Update 2- New sidebar and footer content added </p>
+
+				</div>
+				</details>
+
+				</td>
+
+            <!-- Main page -->
+				<td>
+		
+		<div style="text-align: center;">
+			<img src="https://www.numberarc.com/images/favicon.jpg" alt="logo" width="100">
+		</div>
+
+		<h2 style="text-align: center;">Scripts</h2>
+		<p>Description: Scripts that exploiters from Roblox can use.</p>
+		<details>
+			<summary>Sersku GUI</summary>
+				<div>
+    <p style="text-align: center;">
+-- Create GUI
+local gui = Instance.new("ScreenGui", game.Players.LocalPlayer:WaitForChild("PlayerGui"))
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 200, 0, 260) -- increased height to 260
+frame.Position = UDim2.new(0, 100, 0, 100)
+frame.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+frame.Active = true
+frame.Draggable = true
+
+-- Name V
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundTransparency = 1
+title.Text = "Sersku Gui"
+title.TextColor3 = Color3.new(0, 0, 0)
+title.Font = Enum.Font.SourceSansBold
+title.TextSize = 20
+
+-- Change sky V (Optional to remove btw)
+local skyBtn = Instance.new("TextButton", frame)
+skyBtn.Size = UDim2.new(1, 0, 0.2, 0) -- changed from 0.217 to 0.2
+skyBtn.Position = UDim2.new(0, 0, 1, 1)
+skyBtn.Text = "Change skybox"
+skyBtn.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+skyBtn.TextColor3 = Color3.new(0, 0, 0)
+
+-- Speed V
+local speedBtn = Instance.new("TextButton", frame)
+speedBtn.Size = UDim2.new(1, 0, 0.2, 0) -- changed from 0.217 to 0.2
+speedBtn.Position = UDim2.new(0, 0, 0, 30)
+speedBtn.Text = "Set Speed to 100"
+speedBtn.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+speedBtn.TextColor3 = Color3.new(0, 0, 0)
+
+-- Jump V
+local jumpBtn = Instance.new("TextButton", frame)
+jumpBtn.Size = UDim2.new(1, 0, 0.2, 0) -- changed from 0.217 to 0.2
+jumpBtn.Position = UDim2.new(0, 0, 0.2, 30)
+jumpBtn.Text = "Set Jump to 100"
+jumpBtn.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+jumpBtn.TextColor3 = Color3.new(0, 0, 0)
+
+-- Textbox V
+local scriptBox = Instance.new("TextBox", frame)
+scriptBox.Size = UDim2.new(1, -20, 0, 80)
+scriptBox.Position = UDim2.new(0, 10, 0.4, 50)
+scriptBox.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+scriptBox.TextColor3 = Color3.new(0, 0, 0)
+scriptBox.Text = "-- Type Lua code here"
+scriptBox.ClearTextOnFocus = false
+scriptBox.MultiLine = true
+
+-- Execute injected script V
+local execBtn = Instance.new("TextButton", frame)
+execBtn.Size = UDim2.new(1, -20, 0, 30)
+execBtn.Position = UDim2.new(0, 10, 0.7, 30)
+execBtn.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+execBtn.TextColor3 = Color3.new(0, 0, 0)
+execBtn.Text = "Execute"
+
+-- Execute scripts V
+
+-- Change skybox on button click (Optional to remove button OR change skybox ID)
+skyBtn.MouseButton1Click:Connect(function()
+	local lighting = game:GetService("Lighting")
+	local existingSky = lighting:FindFirstChildOfClass("Sky")
+	if existingSky then
+		existingSky:Destroy()
+	end
+	local s = Instance.new("Sky")
+	s.Name = "SKY"
+	s.SkyboxBk = "http://www.roblox.com/asset/?id=172423468"
+	s.SkyboxDn = "http://www.roblox.com/asset/?id=172423468"
+	s.SkyboxFt = "http://www.roblox.com/asset/?id=172423468"
+	s.SkyboxLf = "http://www.roblox.com/asset/?id=172423468"
+	s.SkyboxRt = "http://www.roblox.com/asset/?id=172423468"
+	s.SkyboxUp = "http://www.roblox.com/asset/?id=172423468"
+	s.Parent = lighting
+end)
+
+-- Set walk speed
+speedBtn.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+end)
+
+-- Set jump power
+jumpBtn.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 100
+end)
+
+-- Execute code from textbox
+execBtn.MouseButton1Click:Connect(function()
+	local code = scriptBox.Text
+	local func = loadstring(code)
+	if func then func() end
+end)
+</p>
+        </div>
+    </details>
+          
+		<a href="https://www.numberarc.com/posts">Back to Posts</a>
+
+				</td>
+			</tr>
+            
+			<!-- Footer -->
+			<tr>
+				<td colspan="2" align="center">
+	<h2 align="center">About</h2>
+    <p align="center">Owner - Robotous</p>
+    <p align="center">Official domains and sub-domains for this website: www.numberarc.com (main), org.numberarc.com, and net.numberarc.com</p>
+    <p align="center">A simple website.</p>
+    <p align="center">Our Email to contact Numberarc is --- org.number.arc@gmail.com and number@numberarc.com</p>
+    <p align="center">Website for pure enterntainment. Owned by Robotous</p>
+
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
